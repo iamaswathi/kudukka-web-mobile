@@ -15,3 +15,13 @@ export const createGoal = asyncHandler( async(req, res) =>{
     const newGoal = await goalService.createGoal(req.body);
     res.status(201).json(newGoal);
 });
+
+export const updateGoal = asyncHandler( async(req, res) =>{
+    const updatedGoal = await goalService.updateGoal(req.params.id, req.body);
+    res.json(updatedGoal);
+});
+
+export const deleteGoal = asyncHandler( async(req, res) =>{
+    await goalService.deleteGoal(req.params.id);
+    res.status(204).send(); // 204 No Content
+});

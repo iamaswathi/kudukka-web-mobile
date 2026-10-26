@@ -6,5 +6,7 @@ const router = Router();
 router.get('/', goalsController.listGoals);
 router.get('/:id', goalsController.getGoal);
 router.post('/', goalsController.createGoal);
+router.patch('/:id', goalsController.updateGoal);
+router.delete('/:id', goalsController.deleteGoal);
 
 export default router;
