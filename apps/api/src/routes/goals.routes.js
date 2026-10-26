@@ -8,5 +8,6 @@ router.get('/:id', goalsController.getGoal);
 router.post('/', goalsController.createGoal);
 router.patch('/:id', goalsController.updateGoal);
 router.delete('/:id', goalsController.deleteGoal);
+router.post('/:id/contributions', goalsController.addContribution);
 
 export default router;

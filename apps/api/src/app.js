@@ -3,7 +3,7 @@ import { requestLogger } from './middleware/requestLogger.js';
 import { notFound } from './middleware/notFound.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import goalsRoutes from './routes/goals.routes.js';
-console.log('app.js loaded');
+
 const app = express();
 app.use(express.json());
 app.use(requestLogger);

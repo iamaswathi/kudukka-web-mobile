@@ -25,3 +25,8 @@ export const deleteGoal = asyncHandler( async(req, res) =>{
     await goalService.deleteGoal(req.params.id);
     res.status(204).send(); // 204 No Content
 });
+
+export const addContribution = asyncHandler( async(req, res) => {
+    const updatedGoal = await goalService.addContribution(req.params.id, req.body.amount);
+    res.json(updatedGoal);
+});
