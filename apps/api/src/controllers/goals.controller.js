@@ -1,17 +1,17 @@
 import * as goalService from '../services/goals.service.js';
+import { asyncHandler } from '../utils/asyncHandler.js';
 
-export function listGoals(req, res) {
-    const goals = goalService.getAllGoals();
+export const listGoals = asyncHandler( async(req, res) => {
+    const goals = await goalService.getAllGoals();
     res.json(goals);
-}
+});
 
-export function getGoal(req, res) {
-    const goal = goalService.getGoalById(req.params.id);
+export const getGoal = asyncHandler( async(req, res) => {
+    const goal = await goalService.getGoalById(req.params.id);
     res.json(goal);
-}
+});
 
-export function createGoal(req, res) {
-    const { name, targetAmount } = req.body;
-    const newGoal = goalService.createGoal({ name, targetAmount });
+export const createGoal = asyncHandler( async(req, res) =>{
+    const newGoal = await goalService.createGoal(req.body);
     res.status(201).json(newGoal);
-}
+});
